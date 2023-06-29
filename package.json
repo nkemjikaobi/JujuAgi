@@ -3,23 +3,40 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "dev": "next dev",
+    "dev": "next dev -p 8085",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "check-types": "tsc --pretty --noEmit",
+    "check-format": "prettier --check .",
+    "check-lint": "eslint . --ext ts --ext tsx --ext js",
+    "format": "prettier --write .",
+    "test-all": "yarn run format && yarn run check-format && yarn run check-lint && yarn run check-types && yarn run build",
+    "prepare": "husky install"
   },
   "dependencies": {
     "@types/node": "20.3.2",
     "@types/react": "18.2.14",
     "@types/react-dom": "18.2.6",
     "autoprefixer": "10.4.14",
-    "eslint": "8.43.0",
+    "eslint": "^8.43.0",
     "eslint-config-next": "13.4.7",
+    "eslint-plugin-import-helpers": "^1.3.1",
+    "formik": "^2.4.2",
     "next": "13.4.7",
+    "nextjs-toploader": "^1.4.2",
     "postcss": "8.4.24",
+    "prettier": "^2.8.8",
     "react": "18.2.0",
+    "react-animate-container": "^0.6.133",
     "react-dom": "18.2.0",
+    "react-icons": "^4.10.1",
     "tailwindcss": "3.3.2",
-    "typescript": "5.1.3"
+    "typescript": "5.1.3",
+    "yup": "^1.2.0",
+    "yup-password": "^0.2.2"
+  },
+  "devDependencies": {
+    "husky": "^8.0.0"
   }
 }
