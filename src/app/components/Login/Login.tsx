@@ -1,12 +1,12 @@
+import CustomButton from "@/app/components/atoms/CustomButton/CustomButton";
+import CustomLink from "@/app/components/atoms/CustomLink/CustomLink";
+import FormikCustomInput from "@/app/components/atoms/FormikCustomInput/FormikCustomInput";
 import { ButtonProperties, errorMessages } from "@/app/libs/helpers";
 import { Form, Formik, FormikProps } from "formik";
 import React from "react";
+import { AnimateContainer } from "react-animate-container";
 import * as yup from "yup";
 import yupPassword from "yup-password";
-import FormikCustomInput from "@/app/components/atoms/FormikCustomInput/FormikCustomInput";
-import CustomButton from "@/app/components/atoms/CustomButton/CustomButton";
-import CustomLink from "@/app/components/atoms/CustomLink/CustomLink";
-import { AnimateContainer } from "react-animate-container";
 
 yupPassword(yup); // extend yup
 
@@ -46,11 +46,11 @@ const Login = () => {
                   <FormikCustomInput
                     className="border rounded-[0.75rem]"
                     container="!bg-juju-gray-200"
+                    icon="mail"
                     inputClassName="placeholder:text-14 placeholder:text-juju-gray-100 placeholder:pl-3 border-black !bg-juju-gray-200"
                     name="email"
                     placeholder="Enter Your Email Address"
                     type="email"
-                    icon="mail"
                   />
                 </div>
               </div>
@@ -60,11 +60,11 @@ const Login = () => {
                   <FormikCustomInput
                     className="border rounded-[0.75rem]"
                     container="!bg-juju-gray-200"
+                    icon="padlock"
                     inputClassName="placeholder:text-14 placeholder:text-juju-gray-100 placeholder:pl-3 mobileBelow:ml-4 border-black !bg-juju-gray-200"
                     name="password"
                     placeholder="Enter Password"
                     type="password"
-                    icon="padlock"
                   />
                 </div>
               </div>

@@ -1,12 +1,12 @@
+import CustomButton from "@/app/components/atoms/CustomButton/CustomButton";
+import CustomLink from "@/app/components/atoms/CustomLink/CustomLink";
+import FormikCustomInput from "@/app/components/atoms/FormikCustomInput/FormikCustomInput";
 import { ButtonProperties, errorMessages } from "@/app/libs/helpers";
 import { Form, Formik, FormikProps } from "formik";
 import React from "react";
+import { AnimateContainer } from "react-animate-container";
 import * as yup from "yup";
 import yupPassword from "yup-password";
-import FormikCustomInput from "@/app/components/atoms/FormikCustomInput/FormikCustomInput";
-import CustomButton from "@/app/components/atoms/CustomButton/CustomButton";
-import { AnimateContainer } from "react-animate-container";
-import CustomLink from "@/app/components/atoms/CustomLink/CustomLink";
 
 yupPassword(yup); // extend yup
 
@@ -82,11 +82,11 @@ const Register = () => {
                   <FormikCustomInput
                     className="border rounded-[0.75rem]"
                     container="!bg-juju-gray-200"
+                    icon="mail"
                     inputClassName="placeholder:text-14 placeholder:text-juju-gray-100 placeholder:pl-3 border-black !bg-juju-gray-200"
                     name="email"
                     placeholder="Enter Your Email Address"
                     type="email"
-                    icon="mail"
                   />
                 </div>
               </div>
@@ -96,11 +96,11 @@ const Register = () => {
                   <FormikCustomInput
                     className="border rounded-[0.75rem]"
                     container="!bg-juju-gray-200"
+                    icon="padlock"
                     inputClassName="placeholder:text-14 placeholder:text-juju-gray-100 placeholder:pl-3 mobileBelow:ml-4 border-black !bg-juju-gray-200"
                     name="password"
                     placeholder="Enter Password"
                     type="password"
-                    icon="padlock"
                   />
                 </div>
               </div>
@@ -109,11 +109,11 @@ const Register = () => {
                   <FormikCustomInput
                     className="border rounded-[0.75rem]"
                     container="!bg-juju-gray-200"
+                    icon="padlock"
                     inputClassName="placeholder:text-14 placeholder:text-juju-gray-100 placeholder:pl-3 mobileBelow:ml-4 border-black !bg-juju-gray-200"
                     name="confirmPassword"
                     placeholder="Retype Password"
                     type="password"
-                    icon="padlock"
                   />
                 </div>
               </div>
@@ -129,11 +129,11 @@ const Register = () => {
               />
               <p className="text-juju-gray-100 w-[26.688rem] font-medium text-12 mt-6 text-center">
                 By creating an account, you agree to our{" "}
-                <CustomLink destination="#" customClass="text-juju-black-200">
+                <CustomLink customClass="text-juju-black-200" destination="#">
                   Terms of Service
                 </CustomLink>{" "}
                 and{" "}
-                <CustomLink destination="#" customClass="text-juju-black-200">
+                <CustomLink customClass="text-juju-black-200" destination="#">
                   Privacy & Cookie Statement
                 </CustomLink>
                 .

@@ -5,7 +5,7 @@ import React from "react";
  * @return {React.Component} React component
  */
 const SVG = (props: any): unknown => (
-  <svg width="24" height="25" viewBox="0 0 24 25" fill="none" xmlns="http://www.w3.org/2000/svg" {...props}>
+  <svg fill="none" height="25" viewBox="0 0 24 25" width="24" xmlns="http://www.w3.org/2000/svg" {...props}>
     <path
       d="M22.56 12.957C22.56 12.177 22.49 11.427 22.36 10.707H12V14.967H17.92C17.66 16.337 16.88 17.497 15.71 18.277V21.047H19.28C21.36 19.127 22.56 16.307 22.56 12.957Z"
       fill="#4C35DD"

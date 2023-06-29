@@ -1,8 +1,8 @@
+import { ButtonProperties } from "@/app/libs/helpers";
 import React, { Fragment, LegacyRef } from "react";
 import { ImSpinner2 } from "react-icons/im";
 
 import Icon from "../Icons";
-import { ButtonProperties } from "@/app/libs/helpers";
 
 interface ButtonProps {
   handleClick: Function;
