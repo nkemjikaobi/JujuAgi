@@ -37,6 +37,7 @@
     "yup-password": "^0.2.2"
   },
   "devDependencies": {
-    "husky": "^8.0.0"
+    "husky": "^8.0.0",
+    "eslint-config-google": "^0.14.0"
   }
 }
