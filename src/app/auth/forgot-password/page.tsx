@@ -1,6 +1,5 @@
-import React from "react";
-import AuthenticatedComponent from "@/app/components/organisms/AuthenticatedComponent/AuthenticatedComponent";
 import ForgotPasswordComponent from "@/app/components/organisms/ForgotPasswordComponent/ForgotPasswordComponent";
+import React from "react";
 
 export const metadata = {
   title: "JujuAGI - Forgot Password",
