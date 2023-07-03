@@ -25,7 +25,9 @@ const ForgotPasswordComponent = () => {
     email: yup.string().email("Invalid email").required(errorMessages.required("Email")),
   });
 
-  const forgotPassword = async (values: Values) => {};
+  const forgotPassword = async (values: Values) => {
+    router.push("/auth/reset-password");
+  };
 
   return (
     <AnimateContainer.fadeIn>
@@ -56,7 +58,7 @@ const ForgotPasswordComponent = () => {
                 customClass="w-full rounded-[0.75rem]"
                 handleClick={() => {}}
                 size={ButtonProperties.SIZES.big}
-                title="Reset Password"
+                title="Send Link"
                 type="submit"
                 variant={ButtonProperties.VARIANT.primary.name}
               />

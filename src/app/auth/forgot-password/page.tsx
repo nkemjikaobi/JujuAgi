@@ -5,7 +5,7 @@ export const metadata = {
   title: "JujuAGI - Forgot Password",
 };
 
-const AuthenticationPage = () => {
+const ForgotPasswordPage = () => {
   return (
     <div className="">
       <ForgotPasswordComponent />
@@ -13,4 +13,4 @@ const AuthenticationPage = () => {
   );
 };
 
-export default AuthenticationPage;
+export default ForgotPasswordPage;

@@ -1,6 +1,6 @@
 "use client";
 import CustomButton from "@/app/components/atoms/CustomButton/CustomButton";
-import Icon from "@/app/components/atoms/Icons";
+import Logo from "@/app/components/atoms/Logo/Logo";
 import Login from "@/app/components/Login/Login";
 import Register from "@/app/components/Register/Register";
 import TabsSelector from "@/app/components/TabsSelector/TabsSelector";
@@ -37,7 +37,7 @@ const AuthenticatedComponent = () => {
       </div>
       <div className="bigLaptop:px-[12.5rem] pt-24 py-16 smallLaptop:max-w-[50%] bigLaptop:max-w-[60%] mx-auto">
         <div className="flex items-center justify-center cursor-pointer mb-[2.5rem]">
-          <Icon name="logo" />
+          <Logo theme="dark" />
         </div>
         <TabsSelector active={active} setActive={setActive} tabs={tabs} />
         <CustomButton

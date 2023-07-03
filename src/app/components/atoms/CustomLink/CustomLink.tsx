@@ -5,20 +5,15 @@ export interface CustomLinkProps {
   destination: string;
   children: ReactNode;
   customClass?: string;
-  hover?: string;
 }
 
-const CustomLink = ({ children, hover, destination, customClass }: CustomLinkProps) => {
+const CustomLink = ({ children, destination, customClass = "" }: CustomLinkProps) => {
+  const hoverStyle = "hover:text-juju-purple-500";
   return (
     <Link href={destination}>
-      <div className={`cursor-pointer hover:text-${hover} ${customClass}`}>{children}</div>
+      <div className={`cursor-pointer ${hoverStyle} ${customClass}`}>{children}</div>
     </Link>
   );
 };
 
 export default CustomLink;
-
-CustomLink.defaultProps = {
-  customClass: "",
-  hover: "juju-purple-800",
-};
