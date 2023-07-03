@@ -37,7 +37,7 @@ const Login = () => {
   });
 
   const signInUser = async (values: Values) => {
-    router.push("/dashboard/explore")
+    router.push("/dashboard/explore");
   };
 
   return (
