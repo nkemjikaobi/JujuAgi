@@ -39,3 +39,13 @@ export const errorMessages = {
   positiveInteger: "The number must be greater than 0",
   integer: "No decimals allowed",
 };
+
+export const composeClasses = (...styles: Array<any>) => {
+  let classes = "";
+
+  styles.forEach((arg) => {
+    if (arg) classes += `${arg} `;
+  });
+
+  return classes.trim();
+};
