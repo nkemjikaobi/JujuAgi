@@ -43,9 +43,10 @@ const ForgotPasswordComponent = () => {
                 <div className="mb-4">
                   <FormikCustomInput
                     className="border rounded-[0.75rem]"
-                    container="!bg-juju-gray-200"
+                    container=""
                     icon="mail"
-                    inputClassName="placeholder:text-14 placeholder:text-juju-gray-100 placeholder:pl-3 border-black !bg-juju-gray-200"
+                    iconClass="mr-2"
+                    inputClassName="placeholder:text-14 placeholder:text-juju-gray-100 placeholder:pl-3 border-black"
                     name="email"
                     placeholder="Enter Your Email Address"
                     type="email"

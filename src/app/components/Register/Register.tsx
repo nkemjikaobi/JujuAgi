@@ -57,8 +57,8 @@ const Register = () => {
                 <div className="mb-4">
                   <FormikCustomInput
                     className="border rounded-[0.75rem]"
-                    container="!bg-juju-gray-200"
-                    inputClassName="placeholder:text-14 placeholder:text-juju-gray-100 placeholder:pl-3 border-black !bg-juju-gray-200"
+                    container=""
+                    inputClassName="placeholder:text-14 placeholder:text-juju-gray-100 placeholder:pl-3 border-black"
                     name="firstName"
                     placeholder="Enter Your First Name"
                     type="text"
@@ -69,8 +69,8 @@ const Register = () => {
                 <div className="mb-4">
                   <FormikCustomInput
                     className="border rounded-[0.75rem]"
-                    container="!bg-juju-gray-200"
-                    inputClassName="placeholder:text-14 placeholder:text-juju-gray-100 placeholder:pl-3 border-black !bg-juju-gray-200"
+                    container=""
+                    inputClassName="placeholder:text-14 placeholder:text-juju-gray-100 placeholder:pl-3 border-black"
                     name="lastName"
                     placeholder="Enter Your Last Name"
                     type="text"
@@ -81,9 +81,10 @@ const Register = () => {
                 <div className="mb-4">
                   <FormikCustomInput
                     className="border rounded-[0.75rem]"
-                    container="!bg-juju-gray-200"
+                    container=""
                     icon="mail"
-                    inputClassName="placeholder:text-14 placeholder:text-juju-gray-100 placeholder:pl-3 border-black !bg-juju-gray-200"
+                    iconClass="mr-2"
+                    inputClassName="placeholder:text-14 placeholder:text-juju-gray-100 placeholder:pl-3 border-black"
                     name="email"
                     placeholder="Enter Your Email Address"
                     type="email"
@@ -95,9 +96,10 @@ const Register = () => {
                 <div className="mb-4">
                   <FormikCustomInput
                     className="border rounded-[0.75rem]"
-                    container="!bg-juju-gray-200"
+                    container=""
                     icon="padlock"
-                    inputClassName="placeholder:text-14 placeholder:text-juju-gray-100 placeholder:pl-3 mobileBelow:ml-4 border-black !bg-juju-gray-200"
+                    iconClass="mr-2"
+                    inputClassName="placeholder:text-14 placeholder:text-juju-gray-100 placeholder:pl-3 mobileBelow:ml-4 border-black"
                     name="password"
                     placeholder="Enter Password"
                     type="password"
@@ -108,9 +110,10 @@ const Register = () => {
                 <div className="mb-4">
                   <FormikCustomInput
                     className="border rounded-[0.75rem]"
-                    container="!bg-juju-gray-200"
+                    container=""
                     icon="padlock"
-                    inputClassName="placeholder:text-14 placeholder:text-juju-gray-100 placeholder:pl-3 mobileBelow:ml-4 border-black !bg-juju-gray-200"
+                    iconClass="mr-2"
+                    inputClassName="placeholder:text-14 placeholder:text-juju-gray-100 placeholder:pl-3 mobileBelow:ml-4 border-black"
                     name="confirmPassword"
                     placeholder="Retype Password"
                     type="password"
