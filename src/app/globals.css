@@ -2,6 +2,33 @@
 @tailwind components;
 @tailwind utilities;
 
+/**
+  Satoshi
+**/
+@font-face {
+  font-family: "Satoshi";
+  src: url(/assets/fonts/Satoshi-Regular.otf) format("opentype");
+  font-weight: 400;
+}
+
+@font-face {
+  font-family: "Satoshi";
+  src: url(/assets/fonts/Satoshi-Medium.otf) format("opentype");
+  font-weight: 500;
+}
+
+@font-face {
+  font-family: "Satoshi";
+  src: url(/assets/fonts/Satoshi-Bold.otf) format("opentype");
+  font-weight: 700;
+}
+
+@font-face {
+  font-family: "Satoshi";
+  src: url(/assets/fonts/Satoshi-Black.otf) format("opentype");
+  font-weight: 800;
+}
+
 input:-webkit-autofill,
 input:-webkit-autofill:hover,
 input:-webkit-autofill:focus,

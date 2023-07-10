@@ -1,8 +1,8 @@
 "use client";
 import CustomButton from "@/app/components/atoms/CustomButton/CustomButton";
 import Logo from "@/app/components/atoms/Logo/Logo";
-import Login from "@/app/components/Login/Login";
-import Register from "@/app/components/Register/Register";
+import Login from "@/app/components/organisms/auth/Login/Login";
+import Register from "@/app/components/organisms/auth/Register/Register";
 import TabsSelector from "@/app/components/TabsSelector/TabsSelector";
 import { ButtonProperties } from "@/app/libs/helpers";
 import Image from "next/image";

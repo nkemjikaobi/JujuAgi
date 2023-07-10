@@ -1,7 +1,7 @@
 import React from "react";
 
 export const metadata = {
-  title: "JujuAGI - JujuChat",
+  title: "JujuAGI - Saved",
 };
 
 const SavedItemsPage = () => {

@@ -28,7 +28,7 @@ const SideBar = () => {
       icon: "magic",
     },
     {
-      id: 1,
+      id: 4,
       name: "projects",
       route: "/dashboard/saved",
       icon: "folder",

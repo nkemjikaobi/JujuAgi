@@ -1,11 +1,16 @@
+import MagicToolsComponent from "@/app/components/organisms/dashboard/magicTools/MagicToolsComponent/MagicToolsComponent";
 import React from "react";
 
 export const metadata = {
-  title: "JujuAGI - JujuChat",
+  title: "JujuAGI - Magic Tools",
 };
 
 const MagicToolsPage = () => {
-  return <div className="">MagicTools Page</div>;
+  return (
+    <div className="p-6">
+      <MagicToolsComponent />
+    </div>
+  );
 };
 
 export default MagicToolsPage;

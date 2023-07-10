@@ -1,4 +1,4 @@
-import ForgotPasswordComponent from "@/app/components/organisms/ForgotPasswordComponent/ForgotPasswordComponent";
+import ForgotPasswordComponent from "@/app/components/organisms/auth/ForgotPasswordComponent/ForgotPasswordComponent";
 import React from "react";
 
 export const metadata = {

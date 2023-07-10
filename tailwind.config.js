@@ -23,11 +23,14 @@ module.exports = {
           200: "#F3F5F7",
           300: "#E8ECEF",
           400: "#252525",
+          500: "#8C9DA6",
+          600: "#A5A7AD",
         },
         "juju-black": {
           100: "#141718",
           200: "#343839",
           300: "#232627",
+          400: "#18191B",
         },
       },
       fontSize: {
@@ -43,6 +46,9 @@ module.exports = {
         32: ["2rem", "3rem"],
         40: ["2.5rem", "3.375rem"],
         64: ["4rem", "4.375rem"],
+      },
+      fontFamily: {
+        "juju-primary": ["Satoshi", "sans-serif"],
       },
     },
   },
