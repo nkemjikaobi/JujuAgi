@@ -1,4 +1,4 @@
-import ResetPasswordComponent from "@/app/components/organisms/ResetPasswordComponent/ResetPasswordComponent";
+import ResetPasswordComponent from "@/app/components/organisms/auth/ResetPasswordComponent/ResetPasswordComponent";
 import React from "react";
 
 export const metadata = {
