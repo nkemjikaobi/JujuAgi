@@ -1,6 +1,6 @@
 import React from "react";
 
-import { TabProp } from "../organisms/AuthenticatedComponent/AuthenticatedComponent";
+import { TabProp } from "../organisms/auth/AuthenticatedComponent/AuthenticatedComponent";
 
 interface TabsSelectorProps {
   tabs: TabProp[];

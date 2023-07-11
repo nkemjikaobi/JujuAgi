@@ -1,4 +1,4 @@
-import AuthenticatedComponent from "@/app/components/organisms/AuthenticatedComponent/AuthenticatedComponent";
+import AuthenticatedComponent from "@/app/components/organisms/auth/AuthenticatedComponent/AuthenticatedComponent";
 import React from "react";
 
 export const metadata = {

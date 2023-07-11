@@ -49,15 +49,15 @@ const ResetPasswordComponent = () => {
           <Form>
             <div className="flex items-center mb-8">
               <Icon className="mr-4 cursor-pointer" name="arrowLeft" onClick={() => router.push("/auth/forgot-password")} />
-              <h3 className="text-24 font-medium text-juju-black-100">Inout New Password</h3>
+              <h3 className="text-24 font-medium text-juju-black-100">Input New Password</h3>
             </div>
             <div className="relative">
               <div className="">
                 <div className="mb-4">
                   <FormikCustomInput
                     className="border rounded-[0.75rem]"
-                    container="!bg-juju-gray-200"
-                    inputClassName="placeholder:text-14 placeholder:text-juju-gray-100 placeholder:pl-3 border-black !bg-juju-gray-200"
+                    container=""
+                    inputClassName="placeholder:text-14 placeholder:text-juju-gray-100 placeholder:pl-3 border-black"
                     name="password"
                     placeholder="Enter Your New Password"
                     type="password"
@@ -68,8 +68,8 @@ const ResetPasswordComponent = () => {
                 <div className="mb-4">
                   <FormikCustomInput
                     className="border rounded-[0.75rem]"
-                    container="!bg-juju-gray-200"
-                    inputClassName="placeholder:text-14 placeholder:text-juju-gray-100 placeholder:pl-3 border-black !bg-juju-gray-200"
+                    container=""
+                    inputClassName="placeholder:text-14 placeholder:text-juju-gray-100 placeholder:pl-3 border-black"
                     name="confirmPassword"
                     placeholder="Confirm Your New Password"
                     type="password"
