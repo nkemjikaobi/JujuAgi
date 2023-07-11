@@ -49,3 +49,14 @@ export const composeClasses = (...styles: Array<any>) => {
 
   return classes.trim();
 };
+
+export const getSanitizedHtml = (content: string) => ({ __html: content });
+
+export const NotificationTypes = {
+  SUCCESS: "success",
+  ERROR: "error",
+  INFO: "info",
+  WARN: "warn",
+};
+
+export const imageUploadLimit = 1000000;

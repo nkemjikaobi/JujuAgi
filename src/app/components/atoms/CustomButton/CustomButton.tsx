@@ -20,16 +20,20 @@ interface ButtonProps {
   size?: string;
   iconPosition?: string;
   variant?: string;
+  loadingText?: string;
 }
 
-/**
- * Renders the actual content of the Button
- * @param {any} title title or text of the button
- * @param {boolean} isSubmitting Loading state
- * @return {React.Component} Button component
- */
-const renderContent = (title: string | undefined, isSubmitting: boolean | undefined) => (
-  <Fragment>{isSubmitting ? <ImSpinner2 className="animate-spin" /> : <Fragment>{title}</Fragment>}</Fragment>
+const renderContent = (title: string | undefined, isSubmitting: boolean | undefined, loadingText: string) => (
+  <Fragment>
+    {isSubmitting ? (
+      <div className="flex items-center">
+        <ImSpinner2 className="animate-spin text-juju-purple-500 text-20 mr-2" />
+        {loadingText && <p>{loadingText}</p>}
+      </div>
+    ) : (
+      <Fragment>{title}</Fragment>
+    )}
+  </Fragment>
 );
 
 const CustomButton = ({
@@ -48,6 +52,7 @@ const CustomButton = ({
   icon = "",
   iconClass = "",
   customBtnClass = "",
+  loadingText = "",
 }: ButtonProps) => {
   /**
    * This displays the rendered content
@@ -55,13 +60,13 @@ const CustomButton = ({
   const content = (
     <div className="flex items-center justify-center">
       {!isSubmitting && icon && iconPosition === ButtonProperties.ICON_POSITION.start ? <Icon className={`mr-2 ${iconClass ? iconClass : ""}`} name={icon} /> : ""}
-      {renderContent(title, isSubmitting)}
+      {renderContent(title, isSubmitting, loadingText)}
       {!isSubmitting && icon && iconPosition === ButtonProperties.ICON_POSITION.end ? <Icon className={`ml-2 ${iconClass ? iconClass : ""}`} name={icon} /> : ""}
     </div>
   );
 
   const styleMap: { [key: string]: string } = {
-    primary: `text-white ${isDisabled ? "bg-juju-purple-200" : "bg-juju-purple-500 hover:bg-juju-purple-800 "}`,
+    primary: `text-white ${isDisabled ? "bg-juju-gray-800" : "bg-juju-purple-500 hover:bg-juju-purple-800 "}`,
     secondary: "",
     custom: `${customBtnClass}`,
   };

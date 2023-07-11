@@ -10,7 +10,7 @@ const MagicToolsListing = () => {
     {
       id: 1,
       title: "Image Compression",
-      route: "#",
+      route: "/dashboard/magic-tools/image-compression",
       imgUrl: "/images/dashboard/magicTools/magic-tool1.png",
     },
     {
