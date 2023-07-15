@@ -22,7 +22,7 @@ const MagicToolsListing = () => {
     {
       id: 3,
       title: "Image to PDF",
-      route: "#",
+      route: "/dashboard/magic-tools/image-to-pdf",
       imgUrl: "/images/dashboard/magicTools/magic-tool3.png",
     },
   ];

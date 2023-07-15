@@ -57,7 +57,10 @@ const ImageCompressionSuccess: React.FC<ImageCompressionSuccessProps> = ({ compr
     <div className="mx-auto w-[600px]">
       <h2 className="text-32 font-bold mb-[2.5rem] whitespace-nowrap text-center">Image compressed successfully</h2>
       <div className="w-[604px] h-auto bg-juju-gray-200 rounded-[20px] p-6">
-        <Image alt="" height={577} src={compressedImageUrl} width={577} />
+        <div className="relative w-full h-[377px]">
+          <Image alt="" fill src={compressedImageUrl} />
+          {/* <Image alt="" height={577} src={compressedImageUrl} width={577} /> */}
+        </div>
         {/* <Image alt="" height={577} src="/images/dashboard/magicTools/magic-tool1.png" width={577} /> */}
         {oldSize && newSize && percentDecrease && (
           <p className="my-4 text-center">

@@ -92,6 +92,8 @@ const ImageCompressionComponent = () => {
   };
 
   const resetCompression = () => {
+    URL.revokeObjectURL(originalImageUrl);
+    URL.revokeObjectURL(compressedImageUrl);
     setOriginalImageUrl("");
     setCompressedImageUrl("");
     setOriginalFileName("");
@@ -111,7 +113,10 @@ const ImageCompressionComponent = () => {
       ) : (
         <>
           {originalImageUrl ? (
-            <Image alt="" height={264} src={originalImageUrl} width={516} />
+            <div className="relative w-[516px] h-[464px]">
+              <Image alt="" fill src={originalImageUrl} />
+              {/* <Image alt="" height={264} src={originalImageUrl} width={516} /> */}
+            </div>
           ) : (
             <div className="w-[516px] h-[398px] bg-juju-purple-500 rounded-[20px] p-3">
               <div className=" flex justify-center flex-col items-center cursor-pointer w-full h-full" id="upload" {...getRootProps()}>
@@ -142,8 +147,10 @@ const ImageCompressionComponent = () => {
             <p
               className="mt-2 text-juju-purple-200 underline cursor-pointer"
               onClick={() => {
+                URL.revokeObjectURL(originalImageUrl);
                 setOriginalImageUrl("");
                 setOriginalFileName("");
+                setOriginalImage(undefined);
               }}
             >
               Remove Image
