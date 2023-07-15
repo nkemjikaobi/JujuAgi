@@ -70,7 +70,9 @@ const ImageToPDFComponent = () => {
           {base64Strings?.length > 0 ? (
             <>
               {base64Strings.map((base64String) => (
-                <Image alt="" height={264} key={base64String} src={base64String} width={516} />
+                <div className="relative w-[516px] h-[464px]" key={base64String}>
+                  <Image alt="" fill src={base64String} />
+                </div>
               ))}
             </>
           ) : (
