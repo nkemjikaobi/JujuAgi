@@ -92,6 +92,8 @@ const ImageCompressionComponent = () => {
   };
 
   const resetCompression = () => {
+    URL.revokeObjectURL(originalImageUrl);
+    URL.revokeObjectURL(compressedImageUrl);
     setOriginalImageUrl("");
     setCompressedImageUrl("");
     setOriginalFileName("");
@@ -142,8 +144,10 @@ const ImageCompressionComponent = () => {
             <p
               className="mt-2 text-juju-purple-200 underline cursor-pointer"
               onClick={() => {
+                URL.revokeObjectURL(originalImageUrl);
                 setOriginalImageUrl("");
                 setOriginalFileName("");
+                setOriginalImage(undefined);
               }}
             >
               Remove Image
