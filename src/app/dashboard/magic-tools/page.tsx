@@ -7,7 +7,7 @@ export const metadata = {
 
 const MagicToolsPage = () => {
   return (
-    <div className="p-6">
+    <div className="p-2 smallLaptop:p-6">
       <MagicToolsComponent />
     </div>
   );

@@ -5,7 +5,7 @@ import MagicToolsListing from "../MagicToolsListing/MagicToolsListing";
 
 const MagicToolsComponent = () => {
   return (
-    <div className="border border-juju-gray-600 p-6 min-h-[80vh]">
+    <div className="smallLaptop:border border-juju-gray-600 p-2 smallLaptop:p-6 min-h-[80vh]">
       <PageHeader subTitle="Favorite tools from the community" title="Magic Tools" />
       <MagicToolsListing />
     </div>
