@@ -52,8 +52,8 @@ const Login: React.FC<LoginProps> = ({ setActive }) => {
           <Form>
             <div className="relative">
               <div className="my-6 smallLaptop:hidden">
-                <h1 className="text-[28px] font-bold mb-2">Welcome back</h1>
-                <p className="font-medium text-14">Enter your details to login to your account</p>
+                <h1 className="text-20 font-bold mb-2">Welcome back</h1>
+                <p className="font-medium text-12">Enter your details to login to your account</p>
               </div>
               <div className="">
                 <div className="mb-4">
@@ -62,7 +62,7 @@ const Login: React.FC<LoginProps> = ({ setActive }) => {
                     container=""
                     icon="mail"
                     iconClass="mr-2"
-                    inputClassName="placeholder:text-14 placeholder:text-juju-gray-100 placeholder:pl-3 border-black"
+                    inputClassName="placeholder:text-14 placeholder:text-juju-gray-100 placeholder:pl-3 border-black text-14 smallLaptop:text-16"
                     name="email"
                     placeholder="Enter Your Email Address"
                     type="email"
@@ -77,14 +77,14 @@ const Login: React.FC<LoginProps> = ({ setActive }) => {
                     container=""
                     icon="padlock"
                     iconClass="mr-2"
-                    inputClassName="placeholder:text-14 placeholder:text-juju-gray-100 placeholder:pl-3 mobileBelow:ml-4 border-black"
+                    inputClassName="placeholder:text-14 placeholder:text-juju-gray-100 placeholder:pl-3 mobileBelow:ml-4 border-black text-14 smallLaptop:text-16"
                     name="password"
                     placeholder="Enter Password"
                     type="password"
                   />
                 </div>
               </div>
-              <CustomLink customClass="flex items-center text-juju-purple-500 text-14 font-medium" destination="/auth/forgot-password">
+              <CustomLink customClass="flex items-center text-juju-purple-500 text-12 smallLaptop:text-14 font-medium" destination="/auth/forgot-password">
                 Forgot Password?
               </CustomLink>
             </div>
@@ -99,11 +99,11 @@ const Login: React.FC<LoginProps> = ({ setActive }) => {
               />
             </div>
             <p className="smallLaptop:hidden text-12 font-medium text-[#6C7275] mb-4 mt-8 uppercase text-center">or</p>
-            <div className="smallLaptop:hidden mb-[80px]">
+            <div className="smallLaptop:hidden mb-[30px]">
               <ContinueWithGoogleButton />
             </div>
             <div className="smallLaptop:hidden">
-              <p className="font-bold text-14 text-juju-black-100 text-center">
+              <p className="font-bold text-12 text-juju-black-100 text-center">
                 Don&apos;t have an account?{" "}
                 <span className="text-juju-purple-500 cursor-pointer" onClick={() => setActive(2)}>
                   Sign Up

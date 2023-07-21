@@ -18,7 +18,7 @@ const FormikCustomInput = ({ className = "", container = "", type, iconClass = "
     <div className="w-full">
       <div
         className={classNames(
-          "flex items-center h-[3.571rem] w-full overflow-hidden",
+          "flex items-center h-[3rem] tablet:h-[3.571rem] w-full overflow-hidden",
           className,
           meta.touched && meta.error ? "!border-red-500" : meta.touched && !meta.error ? "!border-green-600" : ""
         )}
