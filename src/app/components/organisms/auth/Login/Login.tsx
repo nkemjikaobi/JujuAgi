@@ -104,7 +104,10 @@ const Login: React.FC<LoginProps> = ({ setActive }) => {
             </div>
             <div className="smallLaptop:hidden">
               <p className="font-bold text-14 text-juju-black-100 text-center">
-                Don&apos;t have an account? <span className="text-juju-purple-500 cursor-pointer" onClick={() => setActive(2)}>Sign Up</span>
+                Don&apos;t have an account?{" "}
+                <span className="text-juju-purple-500 cursor-pointer" onClick={() => setActive(2)}>
+                  Sign Up
+                </span>
               </p>
             </div>
           </Form>
