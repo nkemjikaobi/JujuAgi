@@ -7,7 +7,7 @@ export const metadata = {
 
 const ImageToPDFPage = () => {
   return (
-    <div className="p-6">
+    <div className="p-4 h-full overflow-y-scroll smallLaptop:p-6">
       <ImageToPDFComponent />
     </div>
   );

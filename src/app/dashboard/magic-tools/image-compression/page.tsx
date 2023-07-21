@@ -7,7 +7,7 @@ export const metadata = {
 
 const ImageCompressionPage = () => {
   return (
-    <div className="p-6">
+    <div className="p-4 h-full overflow-y-scroll smallLaptop:p-6">
       <ImageCompressionComponent />
     </div>
   );
