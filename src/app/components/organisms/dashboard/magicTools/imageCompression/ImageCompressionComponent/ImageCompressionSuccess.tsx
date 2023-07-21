@@ -54,26 +54,32 @@ const ImageCompressionSuccess: React.FC<ImageCompressionSuccessProps> = ({ compr
   }, [originalImage, compressedImage]);
 
   return (
-    <div className="mx-auto w-[600px]">
-      <h2 className="text-32 font-bold mb-[2.5rem] whitespace-nowrap text-center">Image compressed successfully</h2>
-      <div className="w-[604px] h-auto bg-juju-gray-200 rounded-[20px] p-6">
-        <div className="relative w-full h-[377px]">
-          <Image alt="" fill src={compressedImageUrl} />
+    <div className="mx-auto smallLaptop:w-[600px]">
+      <h2 className="font-medium text-20 smallLaptop:text-32 smallLaptop:font-bold mb-[2.5rem] whitespace-nowrap text-center">Image compressed successfully</h2>
+      <div className="smallLaptop:w-[604px] h-auto bg-juju-gray-200 rounded-[20px] smallLaptop:p-6">
+        <div className="relative flex items-center justify-center w-full smallLaptop:h-[377px]">
+          <div className="hidden smallLaptop:block">
+            {/* <Image alt="" height={577} src="/images/dashboard/magicTools/magic-tool1.png" width={577} /> */}
+            <Image alt="" fill src={compressedImageUrl} />
+          </div>
+          <div className="smallLaptop:hidden">
+            {/* <Image alt="" height={204} src="/images/dashboard/magicTools/magic-tool1.png" width={303} /> */}
+            <Image alt="" height={204} src={compressedImageUrl} width={303} />
+          </div>
           {/* <Image alt="" height={577} src={compressedImageUrl} width={577} /> */}
         </div>
-        {/* <Image alt="" height={577} src="/images/dashboard/magicTools/magic-tool1.png" width={577} /> */}
         {oldSize && newSize && percentDecrease && (
-          <p className="my-4 text-center">
+          <p className="mb-4 mt-8 smallLaptop:mt-16 text-center">
             Image Compressed by {percentDecrease}% |{" "}
             <span className="font-bold">
               {oldSize} -&gt; {newSize}
             </span>
           </p>
         )}
-        <div className="mt-12 flex items-center justify-center">
-          <a download={originalImage?.name} href={compressedImageUrl} rel="noopener noreferrer" target="_blank">
+        <div className="mt-12 flex flex-col smallLaptop:flex-row items-center justify-center">
+          <a className="w-full smallLaptop:w-[162px] smallLaptop:mr-6" download={originalImage?.name} href={compressedImageUrl} rel="noopener noreferrer" target="_blank">
             <CustomButton
-              customClass="mr-6 text-14 font-medium w-[162px] !bg-black hover:!bg-juju-black-100"
+              customClass="mb-6 smallLaptop:mb-0 text-14 font-medium w-full !bg-black hover:!bg-juju-black-100"
               handleClick={() => {}}
               icon="download"
               iconPosition="end"
@@ -84,7 +90,7 @@ const ImageCompressionSuccess: React.FC<ImageCompressionSuccessProps> = ({ compr
             />
           </a>
           <CustomButton
-            customClass="text-14 font-medium !w-[193px]"
+            customClass="text-14 font-medium w-full smallLaptop:!w-[193px]"
             handleClick={() => resetCompression()}
             icon="plusCircle"
             iconPosition="end"

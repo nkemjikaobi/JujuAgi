@@ -28,7 +28,7 @@ const DashboardLayout: React.FC<DashboardLayoutProps> = ({ children }) => {
         <SideBar setShowSidebar={setShowSidebar} />
       </div>
       <div
-        className={`w-[20rem] fixed left-0 z-50 smallLaptop:hidden duration-500 transform transition-transform ${showSidebar ? "translate-x-0" : "-translate-x-full"}`}
+        className={`w-[20rem] fixed bottom-0 top-0 left-0 z-50 smallLaptop:hidden duration-500 transform transition-transform ${showSidebar ? "translate-x-0" : "-translate-x-full"}`}
         ref={node}
       >
         <SideBar setShowSidebar={setShowSidebar} />

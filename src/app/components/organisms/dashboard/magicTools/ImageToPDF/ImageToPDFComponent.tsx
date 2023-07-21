@@ -70,13 +70,13 @@ const ImageToPDFComponent = () => {
           {base64Strings?.length > 0 ? (
             <>
               {base64Strings.map((base64String) => (
-                <div className="relative w-[516px] h-[464px]" key={base64String}>
+                <div className="relative smallLaptop:w-[516px] h-[464px]" key={base64String}>
                   <Image alt="" fill src={base64String} />
                 </div>
               ))}
             </>
           ) : (
-            <div className="w-[516px] h-[398px] bg-juju-purple-500 rounded-[20px] p-3">
+            <div className="smalLaptop:w-[516px] h-[398px] bg-juju-purple-500 rounded-[20px] p-3">
               <div className=" flex justify-center flex-col items-center cursor-pointer w-full h-full" id="upload" {...getRootProps()}>
                 <input {...getInputProps()} />
                 <div className="flex justify-center mb-[2.125rem]">
@@ -94,26 +94,28 @@ const ImageToPDFComponent = () => {
           <Pdf filename="image.pdf" options={{ orientation: "landscape" }} scale={0.9} targetRef={ref}>
             {({ toPdf }: any) => (
               <CustomButton
-                customClass="!w-[516px]"
+                customClass="w-full smallLaptop:!w-[516px]"
                 handleClick={toPdf}
                 icon="plus"
                 isDisabled={base64Strings?.length < 1}
                 loadingText="Coverting Image"
-                size={ButtonProperties.SIZES.big}
+                size={ButtonProperties.SIZES.medium}
                 title="Generate PDF"
                 type="submit"
                 variant={ButtonProperties.VARIANT.primary.name}
               />
             )}
           </Pdf>
-          <p
-            className="mt-2 text-juju-purple-200 underline cursor-pointer"
-            onClick={() => {
-              setBase64Strings([]);
-            }}
-          >
-            Remove Image
-          </p>
+          {base64Strings.length > 0 && (
+            <p
+              className="mt-2 text-juju-purple-200 underline cursor-pointer"
+              onClick={() => {
+                setBase64Strings([]);
+              }}
+            >
+              Remove Image
+            </p>
+          )}
         </div>
       </>
     </div>

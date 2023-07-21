@@ -113,12 +113,12 @@ const ImageCompressionComponent = () => {
       ) : (
         <>
           {originalImageUrl ? (
-            <div className="relative w-[516px] h-[464px]">
+            <div className="relative smallLaptop:w-[516px] h-[464px]">
               <Image alt="" fill src={originalImageUrl} />
               {/* <Image alt="" height={264} src={originalImageUrl} width={516} /> */}
             </div>
           ) : (
-            <div className="w-[516px] h-[398px] bg-juju-purple-500 rounded-[20px] p-3">
+            <div className="smallLaptop:w-[516px] h-[398px] bg-juju-purple-500 rounded-[20px] p-3">
               <div className=" flex justify-center flex-col items-center cursor-pointer w-full h-full" id="upload" {...getRootProps()}>
                 <input {...getInputProps()} />
                 <div className="flex justify-center mb-[2.125rem]">
@@ -131,30 +131,32 @@ const ImageCompressionComponent = () => {
               </div>
             </div>
           )}
-          <div className="mt-12">
+          <div className="mt-8 smallLaptop:mt-12">
             <CustomButton
-              customClass="!w-[516px]"
+              customClass="w-full smallLaptop:!w-[516px]"
               handleClick={() => compressImageHandler()}
               icon="plus"
               isDisabled={!originalImageUrl || loading}
               isSubmitting={loading}
               loadingText="Compressing Image"
-              size={ButtonProperties.SIZES.big}
+              size={ButtonProperties.SIZES.medium}
               title="Start Compressing"
               type="submit"
               variant={ButtonProperties.VARIANT.primary.name}
             />
-            <p
-              className="mt-2 text-juju-purple-200 underline cursor-pointer"
-              onClick={() => {
-                URL.revokeObjectURL(originalImageUrl);
-                setOriginalImageUrl("");
-                setOriginalFileName("");
-                setOriginalImage(undefined);
-              }}
-            >
-              Remove Image
-            </p>
+            {originalImageUrl && (
+              <p
+                className="mt-2 text-juju-purple-200 underline cursor-pointer"
+                onClick={() => {
+                  URL.revokeObjectURL(originalImageUrl);
+                  setOriginalImageUrl("");
+                  setOriginalFileName("");
+                  setOriginalImage(undefined);
+                }}
+              >
+                Remove Image
+              </p>
+            )}
           </div>
         </>
       )}
