@@ -6,8 +6,13 @@ import { composeClasses } from "@/app/libs/helpers";
 import { usePathname } from "next/navigation";
 import React from "react";
 
-const SideBar = () => {
+interface SideBarProps {
+  setShowSidebar: (visibility: boolean) => void;
+}
+
+const SideBar: React.FC<SideBarProps> = ({ setShowSidebar }) => {
   const pathname = usePathname();
+
   const sideBarItems = [
     {
       id: 1,
@@ -29,14 +34,14 @@ const SideBar = () => {
     },
     {
       id: 4,
-      name: "projects",
+      name: "saved",
       route: "/dashboard/saved",
       icon: "folder",
     },
   ];
 
   return (
-    <div className="bg-juju-gray-400 h-screen text-juju-gray-50 opacity-90 px-6 py-6 relative">
+    <div className="bg-juju-gray-400 h-screen text-juju-gray-50 smallLaptop:opacity-90 px-6 py-6 relative">
       <Logo />
       <div className="mt-8 h-[75%]">
         {sideBarItems.map((item) => (
@@ -47,6 +52,7 @@ const SideBar = () => {
             )}
             destination={item.route}
             key={item.id}
+            onClick={() => setShowSidebar(false)}
           >
             <Icon name={item.icon} />
             <p className="">{item.name}</p>

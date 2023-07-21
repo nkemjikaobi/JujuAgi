@@ -28,11 +28,16 @@ const MagicToolsListing = () => {
   ];
 
   return (
-    <div className="grid grid-cols-4 gap-5">
+    <div className="grid grid-cols-2 smallLaptop:grid-cols-4 gap-5">
       {data.map((tool) => (
-        <div className="cursor-pointer" key={tool.id} onClick={() => router.push(tool.route)}>
-          <Image alt="" height={170} priority={true} src={tool.imgUrl} width={220} />
-          <p className="mt-2 font-medium text-18 text-juju-black-400">{tool.title}</p>
+        <div className="cursor-pointer mb-4" key={tool.id} onClick={() => router.push(tool.route)}>
+          <div className="hidden smallLaptop:block">
+            <Image alt="" height={170} priority={true} src={tool.imgUrl} width={220} />
+          </div>
+          <div className="smallLaptop:hidden">
+            <Image alt="" height={120.89} priority={true} src={tool.imgUrl} width={156} />
+          </div>
+          <p className="mt-2 font-medium text-14 smallLaptop:text-18 text-juju-black-400">{tool.title}</p>
         </div>
       ))}
     </div>
