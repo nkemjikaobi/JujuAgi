@@ -41,9 +41,9 @@ const SideBar: React.FC<SideBarProps> = ({ setShowSidebar }) => {
   ];
 
   return (
-    <div className="bg-juju-gray-400 h-screen text-juju-gray-50 smallLaptop:opacity-90 px-6 py-6 relative">
+    <div className="bg-juju-gray-400 h-screen text-juju-gray-50 smallLaptop:opacity-90 px-6 py-6 relative flex flex-col">
       <Logo />
-      <div className="mt-8 h-[75%]">
+      <div className="mt-8 h-[75%] flex-1">
         {sideBarItems.map((item) => (
           <CustomLink
             customClass={composeClasses(
@@ -59,7 +59,7 @@ const SideBar: React.FC<SideBarProps> = ({ setShowSidebar }) => {
           </CustomLink>
         ))}
       </div>
-      <div className="bg-black rounded-[0.75rem] p-[0.625rem] min-w-full h-[7.75rem]">
+      <div className="bg-black rounded-[0.75rem] p-[0.625rem] min-w-full h-[7.75rem] mt-auto">
         {/* <div className="absolute bottom-5 bg-black rounded-[12px] p-[10px] min-w-full h-[124px]"> */}
         <div className="flex">
           <div className="w-[2.5rem] h-[2.5rem] rounded-full bg-[url('/images/sidebar/dp.png')] mr-4" />

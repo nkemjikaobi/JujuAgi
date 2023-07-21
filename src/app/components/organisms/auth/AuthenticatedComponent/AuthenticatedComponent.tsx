@@ -35,7 +35,7 @@ const AuthenticatedComponent = () => {
         <Image alt="Unlock the power of AI" fill priority={true} src="/images/auth/auth-bg.png" />
       </div>
       <div className="bigLaptop:px-[12.5rem] pt-24 py-16 smallLaptop:max-w-[50%] bigLaptop:max-w-[60%] mx-auto">
-        <div className="flex items-center smallLaptop:justify-center cursor-pointer mb-[2.5rem]">
+        <div className="flex items-center smallLaptop:justify-center cursor-pointer smallLaptop:mb-[2.5rem]">
           <Logo theme="dark" />
         </div>
         <div className="hidden smallLaptop:block">

@@ -36,7 +36,7 @@ const ForgotPasswordComponent = () => {
           <Form>
             <div className="flex items-center mb-8">
               <Icon className="mr-4 cursor-pointer" name="arrowLeft" onClick={() => router.push("/")} />
-              <h3 className="text-24 font-medium text-juju-black-100">Reset your password</h3>
+              <h3 className="text-20 smallLaptop:text-24 font-medium text-juju-black-100">Reset your password</h3>
             </div>
             <div className="relative">
               <div className="">
@@ -46,7 +46,7 @@ const ForgotPasswordComponent = () => {
                     container=""
                     icon="mail"
                     iconClass="mr-2"
-                    inputClassName="placeholder:text-14 placeholder:text-juju-gray-100 placeholder:pl-3 border-black"
+                    inputClassName="placeholder:text-14 placeholder:text-juju-gray-100 placeholder:pl-3 border-black text-14 smallLaptop:text-16"
                     name="email"
                     placeholder="Enter Your Email Address"
                     type="email"

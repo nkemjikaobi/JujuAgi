@@ -73,7 +73,7 @@ const CustomButton = ({
 
   return isSubmitting || isDisabled ? (
     <button
-      className={`cursor-not-allowed whitespace-nowrap py-[16px] rounded-[8px] flex justify-center items-center h-[53px] ${
+      className={`cursor-not-allowed whitespace-nowrap py-[16px] rounded-[8px] flex justify-center items-center h-[43px] smallLaptop:h-[53px] ${
         size === ButtonProperties.SIZES.small
           ? "tablet:w-[168px] px-[16px]"
           : size === ButtonProperties.SIZES.medium
@@ -93,7 +93,7 @@ const CustomButton = ({
     </button>
   ) : (
     <button
-      className={` whitespace-nowrap py-[16px] rounded-[8px] flex justify-center items-center h-[53px] cursor-pointer ${
+      className={` whitespace-nowrap py-[16px] rounded-[8px] flex justify-center items-center h-[43px] smallLaptop:h-[53px] cursor-pointer ${
         size === ButtonProperties.SIZES.small
           ? "tablet:w-[168px] px-[16px]"
           : size === ButtonProperties.SIZES.medium
