@@ -1,3 +1,4 @@
+import ContinueWithGoogleButton from "@/app/components/atoms/ContinueWithGoogleButton/ContinueWithGoogleButton";
 import CustomButton from "@/app/components/atoms/CustomButton/CustomButton";
 import CustomLink from "@/app/components/atoms/CustomLink/CustomLink";
 import FormikCustomInput from "@/app/components/atoms/FormikCustomInput/FormikCustomInput";
@@ -11,7 +12,11 @@ import yupPassword from "yup-password";
 
 yupPassword(yup); // extend yup
 
-const Login = () => {
+interface LoginProps {
+  setActive: (id: number) => void;
+}
+
+const Login: React.FC<LoginProps> = ({ setActive }) => {
   const router = useRouter();
 
   const initialState = {
@@ -46,6 +51,10 @@ const Login = () => {
         {(props: FormikProps<Values>) => (
           <Form>
             <div className="relative">
+              <div className="my-6 smallLaptop:hidden">
+                <h1 className="text-[28px] font-bold mb-2">Welcome back</h1>
+                <p className="font-medium text-14">Enter your details to login to your account</p>
+              </div>
               <div className="">
                 <div className="mb-4">
                   <FormikCustomInput
@@ -88,6 +97,18 @@ const Login = () => {
                 type="submit"
                 variant={ButtonProperties.VARIANT.primary.name}
               />
+            </div>
+            <p className="smallLaptop:hidden text-12 font-medium text-[#6C7275] mb-4 mt-8 uppercase text-center">or</p>
+            <div className="smallLaptop:hidden mb-[80px]">
+              <ContinueWithGoogleButton />
+            </div>
+            <div className="smallLaptop:hidden">
+              <p className="font-bold text-14 text-juju-black-100 text-center">
+                Don&apos;t have an account?{" "}
+                <span className="text-juju-purple-500 cursor-pointer" onClick={() => setActive(2)}>
+                  Sign Up
+                </span>
+              </p>
             </div>
           </Form>
         )}
