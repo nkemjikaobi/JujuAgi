@@ -1,5 +1,5 @@
+import ContinueWithGoogleButton from "@/app/components/atoms/ContinueWithGoogleButton/ContinueWithGoogleButton";
 import CustomButton from "@/app/components/atoms/CustomButton/CustomButton";
-import CustomLink from "@/app/components/atoms/CustomLink/CustomLink";
 import FormikCustomInput from "@/app/components/atoms/FormikCustomInput/FormikCustomInput";
 import { ButtonProperties, errorMessages } from "@/app/libs/helpers";
 import { Form, Formik, FormikProps } from "formik";
@@ -10,7 +10,11 @@ import yupPassword from "yup-password";
 
 yupPassword(yup); // extend yup
 
-const Register = () => {
+interface RegisterProps {
+  setActive: (id: number) => void;
+}
+
+const Register: React.FC<RegisterProps> = ({ setActive }) => {
   const initialState = {
     firstName: "",
     lastName: "",
@@ -53,6 +57,10 @@ const Register = () => {
         {(props: FormikProps<Values>) => (
           <Form>
             <div className="relative">
+              <div className="my-6 smallLaptop:hidden">
+                <h1 className="text-[28px] font-bold mb-2">Welcome back</h1>
+                <p className="font-medium text-14">Enter your details to create an account</p>
+              </div>
               <div className="">
                 <div className="mb-4">
                   <FormikCustomInput
@@ -130,7 +138,7 @@ const Register = () => {
                 type="submit"
                 variant={ButtonProperties.VARIANT.primary.name}
               />
-              <p className="text-juju-gray-100 w-[26.688rem] font-medium text-12 mt-6 text-center">
+              {/* <p className="text-juju-gray-100 w-[26.688rem] font-medium text-12 mt-6 text-center">
                 By creating an account, you agree to our{" "}
                 <CustomLink customClass="text-juju-black-200" destination="#">
                   Terms of Service
@@ -140,6 +148,18 @@ const Register = () => {
                   Privacy & Cookie Statement
                 </CustomLink>
                 .
+              </p> */}
+            </div>
+            <p className="smallLaptop:hidden text-12 font-medium text-[#6C7275] mb-4 mt-8 uppercase text-center">or</p>
+            <div className="smallLaptop:hidden mb-[80px]">
+              <ContinueWithGoogleButton />
+            </div>
+            <div className="smallLaptop:hidden">
+              <p className="font-bold text-14 text-juju-black-100 text-center">
+                Already have an account?{" "}
+                <span className="text-juju-purple-500 cursor-pointer" onClick={() => setActive(1)}>
+                  Sign In
+                </span>
               </p>
             </div>
           </Form>

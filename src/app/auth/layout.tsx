@@ -8,8 +8,8 @@ interface AuthLayoutProps {
 
 const AuthLayout: React.FC<AuthLayoutProps> = ({ children }) => {
   return (
-    <div className="flex bg-white">
-      <div className="relative w-[38.813rem] smallLaptop:w-[50%] bigLaptop:w-[38.813rem] television:w-[45%] min-h-screen h-auto">
+    <div className="flex bg-white min-h-screen h-auto">
+      <div className="relative w-[38.813rem] smallLaptop:w-[50%] bigLaptop:w-[38.813rem] television:w-[45%] min-h-screen h-auto hidden smallLaptop:block">
         <Image alt="Unlock the power of AI" fill priority={true} src="/images/auth/auth-bg.png" />
       </div>
       <div className="bigLaptop:px-[12.5rem] pt-48 py-16 smallLaptop:max-w-[50%] bigLaptop:max-w-[60%] mx-auto">
