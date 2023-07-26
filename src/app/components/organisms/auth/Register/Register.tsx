@@ -3,9 +3,10 @@ import CustomButton from "@/app/components/atoms/CustomButton/CustomButton";
 import FormikCustomInput from "@/app/components/atoms/FormikCustomInput/FormikCustomInput";
 import { showToast } from "@/app/components/atoms/ShowToast/showToast";
 import { REGISTER_USER } from "@/app/graphql/auth/mutations";
-import { ButtonProperties, NotificationTypes, Status, errorMessages } from "@/app/libs/helpers";
+import { ButtonProperties, LocalStorageKeys, NotificationTypes, Status, errorMessages } from "@/app/libs/helpers";
 import { useMutation } from "@apollo/client";
 import { Form, Formik, FormikProps } from "formik";
+import { useRouter } from "next/navigation";
 import React, { useEffect } from "react";
 import { AnimateContainer } from "react-animate-container";
 import * as yup from "yup";
@@ -19,6 +20,7 @@ interface RegisterProps {
 
 const Register: React.FC<RegisterProps> = ({ setActive }) => {
   const [registerUser, { data, loading, error }] = useMutation(REGISTER_USER);
+  const router = useRouter();
 
   const initialState = {
     firstName: "",
@@ -69,10 +71,11 @@ const Register: React.FC<RegisterProps> = ({ setActive }) => {
 
   useEffect(() => {
     if (data) {
-      const { status, message } = data.registerUser;
+      const { status, message, data: result } = data.registerUser;
       if (status === Status.SUCCESS) {
         showToast(message, NotificationTypes.SUCCESS);
-        // redirect here
+        localStorage.setItem(LocalStorageKeys.CUSTOMER_EMAIL, result.email?.toLowerCase());
+        router.push("/auth/verify-email");
       }
       if (status === Status.FAILED || status === Status.ERROR) {
         showToast(message, NotificationTypes.ERROR);
@@ -82,6 +85,7 @@ const Register: React.FC<RegisterProps> = ({ setActive }) => {
     if (error) {
       showToast("An error occurred", NotificationTypes.ERROR);
     }
+    // eslint-disable-next-line
   }, [data, error]);
 
   return (

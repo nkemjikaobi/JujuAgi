@@ -69,9 +69,9 @@ const useLoginMutation = (): useLoginMutationProps => {
       showToast("Login Success", NotificationTypes.SUCCESS);
       router.push(rdr ? loginDestination : onLoginSuccessDestination);
     } else if (loginUser && loginUser.status === "error") {
-      console.log(loginUser);
       setIsLoading(false);
       showToast(loginUser.message, NotificationTypes.ERROR);
+      if (loginUser.message === "Account is not verified.") router.push("/auth/verify-email");
     }
     if (error) {
       setIsLoading(false);

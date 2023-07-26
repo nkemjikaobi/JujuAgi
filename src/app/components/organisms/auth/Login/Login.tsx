@@ -3,7 +3,7 @@ import CustomButton from "@/app/components/atoms/CustomButton/CustomButton";
 import CustomLink from "@/app/components/atoms/CustomLink/CustomLink";
 import FormikCustomInput from "@/app/components/atoms/FormikCustomInput/FormikCustomInput";
 import useLoginMutation from "@/app/hooks/useLoginMutation";
-import { ButtonProperties, errorMessages } from "@/app/libs/helpers";
+import { ButtonProperties, LocalStorageKeys, errorMessages } from "@/app/libs/helpers";
 import { Form, Formik, FormikProps } from "formik";
 import React from "react";
 import { AnimateContainer } from "react-animate-container";
@@ -42,6 +42,7 @@ const Login: React.FC<LoginProps> = ({ setActive }) => {
   });
 
   const signInUser = async (values: Values) => {
+    localStorage.setItem(LocalStorageKeys.CUSTOMER_EMAIL, values.email?.toLowerCase());
     login({ variables: { loginInput: { ...values } } });
   };
 
