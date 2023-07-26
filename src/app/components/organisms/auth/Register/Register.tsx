@@ -1,9 +1,12 @@
 import ContinueWithGoogleButton from "@/app/components/atoms/ContinueWithGoogleButton/ContinueWithGoogleButton";
 import CustomButton from "@/app/components/atoms/CustomButton/CustomButton";
 import FormikCustomInput from "@/app/components/atoms/FormikCustomInput/FormikCustomInput";
-import { ButtonProperties, errorMessages } from "@/app/libs/helpers";
+import { showToast } from "@/app/components/atoms/ShowToast/showToast";
+import { REGISTER_USER } from "@/app/graphql/auth/mutations";
+import { ButtonProperties, NotificationTypes, Status, errorMessages } from "@/app/libs/helpers";
+import { useMutation } from "@apollo/client";
 import { Form, Formik, FormikProps } from "formik";
-import React from "react";
+import React, { useEffect } from "react";
 import { AnimateContainer } from "react-animate-container";
 import * as yup from "yup";
 import yupPassword from "yup-password";
@@ -15,6 +18,8 @@ interface RegisterProps {
 }
 
 const Register: React.FC<RegisterProps> = ({ setActive }) => {
+  const [registerUser, { data, loading, error }] = useMutation(REGISTER_USER);
+
   const initialState = {
     firstName: "",
     lastName: "",
@@ -49,7 +54,36 @@ const Register: React.FC<RegisterProps> = ({ setActive }) => {
       .oneOf([yup.ref("password"), ""], errorMessages.passwordMatch),
   });
 
-  const createUserAccount = async (values: Values) => {};
+  const createUserAccount = async (values: Values) => {
+    await registerUser({
+      variables: {
+        registerInput: {
+          email: values.email,
+          firstName: values.firstName,
+          lastName: values.lastName,
+          password: values.password,
+        },
+      },
+    });
+  };
+
+  useEffect(() => {
+    if (data) {
+      const { status, message } = data.registerUser;
+      console.log({ status, message, data });
+      if (status === Status.SUCCESS) {
+        showToast(message, NotificationTypes.SUCCESS);
+        // redirect here
+      }
+      if (status === Status.FAILED) {
+        showToast(message, NotificationTypes.ERROR);
+      }
+    }
+
+    if (error) {
+      showToast("An error occurred", NotificationTypes.ERROR);
+    }
+  }, [data, error]);
 
   return (
     <AnimateContainer.fadeIn>
@@ -133,6 +167,8 @@ const Register: React.FC<RegisterProps> = ({ setActive }) => {
               <CustomButton
                 customClass="w-full rounded-[0.75rem]"
                 handleClick={() => {}}
+                isDisabled={loading}
+                isSubmitting={loading}
                 size={ButtonProperties.SIZES.big}
                 title="Create Account"
                 type="submit"

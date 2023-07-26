@@ -4,9 +4,10 @@ import { createUploadLink } from "apollo-upload-client";
 
 import { LocalStorageKeys } from "./helpers";
 
-const { NEXT_PUBLIC_GATEWAY_URL_DOMAIN } = process.env;
+// const { NEXT_PUBLIC_GATEWAY_URL_DOMAIN } = process.env;
 
-const apiGateWayUrl = NEXT_PUBLIC_GATEWAY_URL_DOMAIN;
+const apiGateWayUrl = "https://juju-backend.onrender.com/graphql";
+// const apiGateWayUrl = NEXT_PUBLIC_GATEWAY_URL_DOMAIN;
 
 const httpLink = createUploadLink({
   uri: apiGateWayUrl,

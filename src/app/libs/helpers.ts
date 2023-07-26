@@ -1,3 +1,6 @@
+import moment, { Moment } from "moment";
+import { ParsedUrlQuery } from "querystring";
+
 /* eslint-disable no-unused-vars */
 export const ButtonProperties = {
   SIZES: {
@@ -67,3 +70,30 @@ export enum LocalStorageKeys {
   EXPIRATION_TIME = "time",
   CUSTOMER_EMAIL = "CustomerEmail",
 }
+
+export const getTokenExpirationTime = (): Moment => {
+  // moment().add(70, "h"); --- 70 hours from current time
+  const timeToExpiration = process.env.NEXT_PUBLIC_TIME_TO_EXPIRATION_IN_MINUTES || 45;
+  return moment().add(Number(timeToExpiration), "m");
+};
+
+export const getUrlQuery = (query: ParsedUrlQuery): string => {
+  if (Object.keys(query).length > 0) {
+    return `?${Object.entries(query).map(([key, value]) => `${key}=${value}&`)}`.replaceAll(",", "").slice(0, -1);
+  } else return "";
+};
+
+export const getLoginPath = (pathname: string, query: ParsedUrlQuery): string => {
+  const redirectPath = `${pathname}${getUrlQuery(query).replace("?", "&")}`;
+
+  return `/?rdr=${redirectPath}`;
+};
+
+/**
+ * Status for various responses
+ */
+export const Status = {
+  FAILED: "failed",
+  SUCCESS: "success",
+  ERROR: "error",
+};
