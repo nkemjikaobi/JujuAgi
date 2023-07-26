@@ -69,6 +69,7 @@ export enum LocalStorageKeys {
   TOKEN = "token",
   EXPIRATION_TIME = "time",
   CUSTOMER_EMAIL = "CustomerEmail",
+  FORGOT_CUSTOMER_EMAIL = "ForgotCustomerEmail",
 }
 
 export const getTokenExpirationTime = (): Moment => {

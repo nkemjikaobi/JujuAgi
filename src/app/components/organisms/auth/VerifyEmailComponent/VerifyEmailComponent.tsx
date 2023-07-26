@@ -103,7 +103,7 @@ const VerifyEmailComponent = () => {
             <div className="relative">
               <div className="">
                 <div className="mb-4">
-                  <OtpComponent isInputNum={true} numInputs={4} onChange={handleChange} otp={otp} value={otp} />
+                  <OtpComponent isInputNum={true} numInputs={4} onChange={handleChange} otp={otp} placeholder="2034" value={otp} />
                 </div>
               </div>
             </div>

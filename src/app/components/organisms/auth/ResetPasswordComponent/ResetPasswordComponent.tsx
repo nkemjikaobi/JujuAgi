@@ -2,13 +2,14 @@
 import CustomButton from "@/app/components/atoms/CustomButton/CustomButton";
 import FormikCustomInput from "@/app/components/atoms/FormikCustomInput/FormikCustomInput";
 import Icon from "@/app/components/atoms/Icons";
+import OtpComponent from "@/app/components/atoms/OtpComponent/OtpComponent";
 import { showToast } from "@/app/components/atoms/ShowToast/showToast";
 import { RESET_PASSWORD } from "@/app/graphql/auth/mutations";
-import { ButtonProperties, NotificationTypes, Status, errorMessages } from "@/app/libs/helpers";
+import { ButtonProperties, LocalStorageKeys, NotificationTypes, Status, errorMessages } from "@/app/libs/helpers";
 import { useMutation } from "@apollo/client";
 import { Form, Formik, FormikProps } from "formik";
-import { useRouter, useSearchParams } from "next/navigation";
-import React, { useEffect } from "react";
+import { useRouter } from "next/navigation";
+import React, { useEffect, useState } from "react";
 import { AnimateContainer } from "react-animate-container";
 import * as yup from "yup";
 import yupPassword from "yup-password";
@@ -17,7 +18,13 @@ yupPassword(yup); // extend yup
 const ResetPasswordComponent = () => {
   const router = useRouter();
   const [resetPasswordHandler, { data, loading, error }] = useMutation(RESET_PASSWORD);
-  const searchParams = useSearchParams();
+  const [otp, setOtp] = useState<string>("");
+
+  const handleChange = async (otp: string) => {
+    if (otp) {
+      setOtp(otp);
+    }
+  };
 
   const initialState = {
     password: "",
@@ -45,13 +52,11 @@ const ResetPasswordComponent = () => {
   });
 
   const resetPassword = async (values: Values) => {
-    const token = searchParams.get("token");
-
     await resetPasswordHandler({
       variables: {
-        email: "",
+        email: localStorage.getItem(LocalStorageKeys.FORGOT_CUSTOMER_EMAIL),
         newPassword: values.password,
-        token,
+        token: otp,
       },
     });
   };
@@ -61,6 +66,7 @@ const ResetPasswordComponent = () => {
       const { status, message } = data.resetPassword;
       if (status === Status.SUCCESS) {
         showToast(message, NotificationTypes.SUCCESS);
+        localStorage.removeItem(LocalStorageKeys.FORGOT_CUSTOMER_EMAIL);
         router.push("/auth/password-reset-success");
       }
       if (status === Status.FAILED || status === Status.ERROR) {
@@ -84,6 +90,11 @@ const ResetPasswordComponent = () => {
               <h3 className="text-20 smallLaptop:text-24 font-medium text-juju-black-100">Input New Password</h3>
             </div>
             <div className="relative">
+              <div className="">
+                <div className="mb-4">
+                  <OtpComponent isInputNum={true} numInputs={4} onChange={handleChange} otp={otp} placeholder="2034" value={otp} />
+                </div>
+              </div>
               <div className="">
                 <div className="mb-4">
                   <FormikCustomInput

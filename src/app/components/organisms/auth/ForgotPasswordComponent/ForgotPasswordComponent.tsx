@@ -4,7 +4,7 @@ import FormikCustomInput from "@/app/components/atoms/FormikCustomInput/FormikCu
 import Icon from "@/app/components/atoms/Icons";
 import { showToast } from "@/app/components/atoms/ShowToast/showToast";
 import { FORGOT_PASSWORD } from "@/app/graphql/auth/mutations";
-import { ButtonProperties, NotificationTypes, Status, errorMessages } from "@/app/libs/helpers";
+import { ButtonProperties, LocalStorageKeys, NotificationTypes, Status, errorMessages } from "@/app/libs/helpers";
 import { useMutation } from "@apollo/client";
 import { Form, Formik, FormikProps } from "formik";
 import { useRouter } from "next/navigation";
@@ -40,9 +40,11 @@ const ForgotPasswordComponent = () => {
 
   useEffect(() => {
     if (data) {
-      const { status, message } = data.forgotPassword;
+      const { status, message, data: result } = data.forgotPassword;
       if (status === Status.SUCCESS) {
         showToast(message, NotificationTypes.SUCCESS);
+        localStorage.setItem(LocalStorageKeys.FORGOT_CUSTOMER_EMAIL, result.email?.toLowerCase());
+        router.push("/auth/reset-password");
       }
       if (status === Status.FAILED || status === Status.ERROR) {
         showToast(message, NotificationTypes.ERROR);
@@ -52,6 +54,7 @@ const ForgotPasswordComponent = () => {
     if (error) {
       showToast("An error occurred", NotificationTypes.ERROR);
     }
+    // eslint-disable-next-line
   }, [data, error]);
 
   return (

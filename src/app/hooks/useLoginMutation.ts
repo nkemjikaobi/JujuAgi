@@ -67,6 +67,8 @@ const useLoginMutation = (): useLoginMutationProps => {
 
       dispatch(updateCurrentUser(loginUser.data.user));
       showToast("Login Success", NotificationTypes.SUCCESS);
+      localStorage.removeItem(LocalStorageKeys.CUSTOMER_EMAIL);
+      localStorage.removeItem(LocalStorageKeys.FORGOT_CUSTOMER_EMAIL);
       router.push(rdr ? loginDestination : onLoginSuccessDestination);
     } else if (loginUser && loginUser.status === "error") {
       setIsLoading(false);
