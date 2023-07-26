@@ -3,6 +3,8 @@ import { ToastContainer } from "react-toastify";
 
 import "./globals.css";
 import "react-toastify/dist/ReactToastify.css";
+import ApolloClientProvider from "./libs/providers/ApolloClientProvider/ApolloClientProvider";
+import ReduxProvider from "./libs/providers/ReduxProvider/ReduxProvider";
 
 export const metadata = {
   title: "JujuAGI - Home",
@@ -18,20 +20,24 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
     <html lang="en">
       <body>
         <main className="font-juju-primary">
-          <NextTopLoader color="#4C35DD" />
-          <ToastContainer
-            autoClose={5000}
-            closeOnClick
-            draggable
-            hideProgressBar={false}
-            newestOnTop={false}
-            pauseOnFocusLoss
-            pauseOnHover
-            position="top-right"
-            rtl={false}
-            theme="dark"
-          />
-          {children}
+          <ReduxProvider>
+            <ApolloClientProvider>
+              <NextTopLoader color="#4C35DD" />
+              <ToastContainer
+                autoClose={5000}
+                closeOnClick
+                draggable
+                hideProgressBar={false}
+                newestOnTop={false}
+                pauseOnFocusLoss
+                pauseOnHover
+                position="top-right"
+                rtl={false}
+                theme="dark"
+              />
+              {children}
+            </ApolloClientProvider>
+          </ReduxProvider>
         </main>
       </body>
     </html>

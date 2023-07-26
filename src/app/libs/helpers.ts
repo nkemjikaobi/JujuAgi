@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 export const ButtonProperties = {
   SIZES: {
     small: "small",
@@ -60,3 +61,9 @@ export const NotificationTypes = {
 };
 
 export const imageUploadLimit = 1000000;
+
+export enum LocalStorageKeys {
+  TOKEN = "token",
+  EXPIRATION_TIME = "time",
+  CUSTOMER_EMAIL = "CustomerEmail",
+}
