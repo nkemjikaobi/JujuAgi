@@ -70,12 +70,11 @@ const Register: React.FC<RegisterProps> = ({ setActive }) => {
   useEffect(() => {
     if (data) {
       const { status, message } = data.registerUser;
-      console.log({ status, message, data });
       if (status === Status.SUCCESS) {
         showToast(message, NotificationTypes.SUCCESS);
         // redirect here
       }
-      if (status === Status.FAILED) {
+      if (status === Status.FAILED || status === Status.ERROR) {
         showToast(message, NotificationTypes.ERROR);
       }
     }

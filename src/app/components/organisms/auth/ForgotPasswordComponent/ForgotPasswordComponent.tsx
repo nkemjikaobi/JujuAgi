@@ -2,16 +2,21 @@
 import CustomButton from "@/app/components/atoms/CustomButton/CustomButton";
 import FormikCustomInput from "@/app/components/atoms/FormikCustomInput/FormikCustomInput";
 import Icon from "@/app/components/atoms/Icons";
-import { ButtonProperties, errorMessages } from "@/app/libs/helpers";
+import { showToast } from "@/app/components/atoms/ShowToast/showToast";
+import { FORGOT_PASSWORD } from "@/app/graphql/auth/mutations";
+import { ButtonProperties, NotificationTypes, Status, errorMessages } from "@/app/libs/helpers";
+import { useMutation } from "@apollo/client";
 import { Form, Formik, FormikProps } from "formik";
 import { useRouter } from "next/navigation";
-import React from "react";
+import React, { useEffect } from "react";
 import { AnimateContainer } from "react-animate-container";
 import * as yup from "yup";
 import yupPassword from "yup-password";
 yupPassword(yup); // extend yup
 
 const ForgotPasswordComponent = () => {
+  const [forgotPasswordHanlder, { data, loading, error }] = useMutation(FORGOT_PASSWORD);
+
   const router = useRouter();
   const initialState = {
     email: "",
@@ -26,8 +31,28 @@ const ForgotPasswordComponent = () => {
   });
 
   const forgotPassword = async (values: Values) => {
-    router.push("/auth/reset-password");
+    await forgotPasswordHanlder({
+      variables: {
+        email: values.email,
+      },
+    });
   };
+
+  useEffect(() => {
+    if (data) {
+      const { status, message } = data.forgotPassword;
+      if (status === Status.SUCCESS) {
+        showToast(message, NotificationTypes.SUCCESS);
+      }
+      if (status === Status.FAILED || status === Status.ERROR) {
+        showToast(message, NotificationTypes.ERROR);
+      }
+    }
+
+    if (error) {
+      showToast("An error occurred", NotificationTypes.ERROR);
+    }
+  }, [data, error]);
 
   return (
     <AnimateContainer.fadeIn>
@@ -58,6 +83,8 @@ const ForgotPasswordComponent = () => {
               <CustomButton
                 customClass="w-full rounded-[0.75rem]"
                 handleClick={() => {}}
+                isDisabled={loading}
+                isSubmitting={loading}
                 size={ButtonProperties.SIZES.big}
                 title="Send Link"
                 type="submit"
