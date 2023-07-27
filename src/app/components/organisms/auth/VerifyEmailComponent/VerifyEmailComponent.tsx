@@ -83,13 +83,13 @@ const VerifyEmailComponent = () => {
     }
   };
 
-  useEffect(() => {
-    if (typeof window !== undefined && !localStorage.getItem(LocalStorageKeys.CUSTOMER_EMAIL)) {
-      showToast("Unauthorized", NotificationTypes.ERROR);
-      router.push("/");
-    }
-    // eslint-disable-next-line
-  }, [localStorage.getItem(LocalStorageKeys.CUSTOMER_EMAIL)]);
+  // useEffect(() => {
+  //   if (typeof window !== undefined && !localStorage.getItem(LocalStorageKeys.CUSTOMER_EMAIL)) {
+  //     showToast("Unauthorized", NotificationTypes.ERROR);
+  //     router.push("/");
+  //   }
+  //   // eslint-disable-next-line
+  // }, [localStorage]);
 
   return (
     <AnimateContainer.fadeIn>
