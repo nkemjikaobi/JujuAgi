@@ -2,9 +2,9 @@ import ContinueWithGoogleButton from "@/app/components/atoms/ContinueWithGoogleB
 import CustomButton from "@/app/components/atoms/CustomButton/CustomButton";
 import CustomLink from "@/app/components/atoms/CustomLink/CustomLink";
 import FormikCustomInput from "@/app/components/atoms/FormikCustomInput/FormikCustomInput";
-import { ButtonProperties, errorMessages } from "@/app/libs/helpers";
+import useLoginMutation from "@/app/hooks/useLoginMutation";
+import { ButtonProperties, LocalStorageKeys, errorMessages } from "@/app/libs/helpers";
 import { Form, Formik, FormikProps } from "formik";
-import { useRouter } from "next/navigation";
 import React from "react";
 import { AnimateContainer } from "react-animate-container";
 import * as yup from "yup";
@@ -17,7 +17,7 @@ interface LoginProps {
 }
 
 const Login: React.FC<LoginProps> = ({ setActive }) => {
-  const router = useRouter();
+  const { login, isLoading } = useLoginMutation();
 
   const initialState = {
     email: "",
@@ -42,7 +42,8 @@ const Login: React.FC<LoginProps> = ({ setActive }) => {
   });
 
   const signInUser = async (values: Values) => {
-    router.push("/dashboard/explore");
+    localStorage.setItem(LocalStorageKeys.CUSTOMER_EMAIL, values.email?.toLowerCase());
+    login({ variables: { loginInput: { ...values } } });
   };
 
   return (
@@ -92,6 +93,8 @@ const Login: React.FC<LoginProps> = ({ setActive }) => {
               <CustomButton
                 customClass="w-full rounded-[0.75rem]"
                 handleClick={() => {}}
+                isDisabled={isLoading}
+                isSubmitting={isLoading}
                 size={ButtonProperties.SIZES.big}
                 title="Login"
                 type="submit"
