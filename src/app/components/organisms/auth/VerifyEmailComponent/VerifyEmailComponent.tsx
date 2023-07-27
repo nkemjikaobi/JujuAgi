@@ -89,7 +89,7 @@ const VerifyEmailComponent = () => {
       router.push("/");
     }
     // eslint-disable-next-line
-  }, [localStorage]);
+  }, [localStorage.getItem(LocalStorageKeys.CUSTOMER_EMAIL)]);
 
   return (
     <AnimateContainer.fadeIn>
