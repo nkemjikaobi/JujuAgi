@@ -76,7 +76,7 @@ const ImageToPDFComponent = () => {
               ))}
             </>
           ) : (
-            <div className="smalLaptop:w-[516px] h-[398px] bg-juju-purple-500 rounded-[20px] p-3">
+            <div className="smallLaptop:w-[516px] h-[398px] bg-juju-purple-500 rounded-[20px] p-3">
               <div className=" flex justify-center flex-col items-center cursor-pointer w-full h-full" id="upload" {...getRootProps()}>
                 <input {...getInputProps()} />
                 <div className="flex justify-center mb-[2.125rem]">
