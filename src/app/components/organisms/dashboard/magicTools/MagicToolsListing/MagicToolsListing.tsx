@@ -16,14 +16,14 @@ const MagicToolsListing = () => {
     {
       id: 2,
       title: "Text to Speech",
-      route: "#",
-      imgUrl: "/images/dashboard/magicTools/magic-tool2.png",
+      route: "/dashboard/magic-tools/text-to-speech",
+      imgUrl: "/images/dashboard/magicTools/magic-tool3.png",
     },
     {
       id: 3,
       title: "Image to PDF",
       route: "/dashboard/magic-tools/image-to-pdf",
-      imgUrl: "/images/dashboard/magicTools/magic-tool3.png",
+      imgUrl: "/images/dashboard/magicTools/magic-tool2.png",
     },
   ];
 

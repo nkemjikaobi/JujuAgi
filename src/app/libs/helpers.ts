@@ -74,8 +74,8 @@ export enum LocalStorageKeys {
 
 export const getTokenExpirationTime = (): Moment => {
   // moment().add(70, "h"); --- 70 hours from current time
-  const timeToExpiration = process.env.NEXT_PUBLIC_TIME_TO_EXPIRATION_IN_MINUTES || 45;
-  return moment().add(Number(timeToExpiration), "m");
+  const timeToExpiration = process.env.NEXT_PUBLIC_TIME_TO_EXPIRATION_IN_MINUTES || 24;
+  return moment().add(Number(timeToExpiration), "h");
 };
 
 export const getUrlQuery = (query: ParsedUrlQuery): string => {
