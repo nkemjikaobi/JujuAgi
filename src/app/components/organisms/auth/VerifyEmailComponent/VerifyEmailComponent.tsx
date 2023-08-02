@@ -126,7 +126,7 @@ const VerifyEmailComponent = () => {
                 isDisabled={loading || otp.length < 4 || resendLoader}
                 isSubmitting={loading || resendLoader}
                 size={ButtonProperties.SIZES.big}
-                title="Send Link"
+                title="Verify Email"
                 type="submit"
                 variant={ButtonProperties.VARIANT.primary.name}
               />

@@ -25,6 +25,12 @@ const MagicToolsListing = () => {
       route: "/dashboard/magic-tools/image-to-pdf",
       imgUrl: "/images/dashboard/magicTools/magic-tool2.png",
     },
+    {
+      id: 4,
+      title: "Speech to Text",
+      route: "/dashboard/magic-tools/speech-to-text",
+      imgUrl: "/images/dashboard/magicTools/magic-tool3.png",
+    },
   ];
 
   return (

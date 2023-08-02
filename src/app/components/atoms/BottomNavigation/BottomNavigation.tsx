@@ -11,8 +11,8 @@ const BottomNavigation = () => {
   const data = [
     {
       id: 1,
-      name: "explore",
-      route: "/dashboard/explore",
+      name: "home",
+      route: "/dashboard/home",
       icon: "compass",
     },
     {

@@ -2,11 +2,11 @@
 import React from "react";
 
 export const metadata = {
-  title: "JujuAGI - Explore",
+  title: "JujuAGI - Home",
 };
 
-const AuthenticationPage = () => {
-  return <div className="">Explore</div>;
+const DashboardHomePage = () => {
+  return <div className="">Home</div>;
 };
 
-export default AuthenticationPage;
+export default DashboardHomePage;

@@ -7,6 +7,8 @@ import { usePathname, useRouter } from "next/navigation";
 import React, { useEffect, useState } from "react";
 import { useDispatch } from "react-redux";
 
+import Logo from "../Logo/Logo";
+
 const CustomAppWrapper = ({ children }: { children: React.ReactNode }) => {
   const [loopCount, setLoopCount] = useState(0);
 
@@ -47,9 +49,8 @@ const CustomAppWrapper = ({ children }: { children: React.ReactNode }) => {
   }, [loopCount]);
 
   useEffect(() => {
-    if (data?.me?.data?.user) {
-      console.log("nkem");
-      dispatch(updateCurrentUser(data?.getUser?.data?.user));
+    if (data?.me?.data) {
+      dispatch(updateCurrentUser(data?.me?.data));
     } else if (error) logout();
 
     // eslint-disable-next-line
@@ -58,8 +59,7 @@ const CustomAppWrapper = ({ children }: { children: React.ReactNode }) => {
   if (fetchingUserDetails)
     return (
       <div className="w-screen h-screen flex items-center justify-center animate-pulse">
-        {/* <Logo /> */}
-        <p>Loading...</p>
+        <Logo theme="dark" />
       </div>
     );
 
