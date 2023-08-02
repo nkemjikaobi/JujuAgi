@@ -108,7 +108,7 @@ const GenerateAudioComponent = () => {
           />
         </div>
         <div className="w-1/2">
-          {true && (
+          {speaking && (
             <p className="text-center my-8 text-16 text-juju-purple-500 underline cursor-pointer" onClick={cancel}>
               Stop Playing
             </p>

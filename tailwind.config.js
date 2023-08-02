@@ -35,6 +35,7 @@ module.exports = {
           200: "#343839",
           300: "#232627",
           400: "#18191B",
+          500: "#151515",
         },
       },
       fontSize: {
@@ -51,9 +52,7 @@ module.exports = {
         40: ["2.5rem", "3.375rem"],
         64: ["4rem", "4.375rem"],
       },
-      fontFamily: {
-        "juju-primary": ["Satoshi", "sans-serif"],
-      },
+      fontFamily: {},
     },
   },
   plugins: [],

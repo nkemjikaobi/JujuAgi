@@ -13,7 +13,7 @@ const Logo = ({ theme = "light" }: LogoProps) => {
   const imageWidth = width > 768 ? "" : "w-32";
   const imageHeight = width > 768 ? "" : "h-16";
 
-  return <>{theme === "dark" ? <Icon className={`${imageHeight} ${imageWidth}`} name="darkLogo" /> : <Icon className={`${imageHeight} ${imageWidth}`} name="whiteLogo" />}</>;
+  return <>{theme === "dark" ? <Icon className={`${imageHeight} ${imageWidth}`} name="newDarkLogo" /> : <Icon className={`${imageHeight} ${imageWidth}`} name="newWhiteLogo" />}</>;
 };
 
 export default Logo;
