@@ -80,7 +80,11 @@ const HomeComponent = () => {
         <h3 className="text-[18px] mb-2">Tools</h3>
         <div className="grid grid-cols-2 smallLaptop:grid-cols-9 gap-3">
           {data.map((tool) => (
-            <div className="px-4 py-[10px] bg-juju-purple-500 hover:bg-purple-800 rounded-[8px] smallLaptop:w-[115px] cursor-pointer" key={tool.id} onClick={() => router.push(tool.route)}>
+            <div
+              className="px-4 py-[10px] bg-juju-purple-500 hover:bg-purple-800 rounded-[8px] smallLaptop:w-[115px] cursor-pointer"
+              key={tool.id}
+              onClick={() => router.push(tool.route)}
+            >
               <Image alt="" height={29} src={tool.imgUrl} width={28} />
               <p className="font-medium text-sm mt-4">{tool.title}</p>
             </div>
