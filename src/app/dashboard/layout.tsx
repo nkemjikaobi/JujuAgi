@@ -26,7 +26,7 @@ const DashboardLayout: React.FC<DashboardLayoutProps> = ({ children }) => {
 
   return (
     <CustomAppWrapperProvider>
-      <div className="flex">
+      <div className="flex h-screen">
         <div className="w-[20rem] hidden smallLaptop:block">
           <SideBar setShowSidebar={setShowSidebar} />
         </div>
@@ -39,10 +39,12 @@ const DashboardLayout: React.FC<DashboardLayoutProps> = ({ children }) => {
           <SideBar setShowSidebar={setShowSidebar} />
         </div>
         <div className="flex-1">
-          <div className="p-4 mt-6 smallLaptop:hidden">
+          <div className="p-4 fixed top-0 left-0 bg-white w-full smallLaptop:hidden">
             <Icon className="cursor-pointer" name="hamburger" onClick={() => setShowSidebar(true)} />
           </div>
-          {children}
+          {/* <div className="pt-16 smallLaptop:pt-0 overflow-y-scroll flex-1">{children}</div> */}
+          {/* <div className="pt-16 smallLaptop:pt-0 overflow-y-scroll h-[800px]">{children}</div> */}
+          <div className="pt-16 smallLaptop:pt-0 overflow-y-scroll">{children}</div>
         </div>
         <div className="smallLaptop:hidden">
           <BottomNavigation />

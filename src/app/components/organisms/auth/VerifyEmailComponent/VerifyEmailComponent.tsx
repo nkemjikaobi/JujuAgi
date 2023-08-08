@@ -44,7 +44,7 @@ const VerifyEmailComponent = () => {
       const { status, message } = data.verifyAccount;
       if (status === Status.SUCCESS) {
         showToast(message, NotificationTypes.SUCCESS);
-        router.push("/dashboard/magic-tools");
+        router.push("/dashboard/home");
         localStorage.removeItem(LocalStorageKeys.CUSTOMER_EMAIL);
       }
       if (status === Status.FAILED || status === Status.ERROR) {
