@@ -38,7 +38,7 @@ interface useLoginMutationProps {
 const useLoginMutation = (): useLoginMutationProps => {
   const [isLoading, setIsLoading] = useState<boolean>(false);
 
-  const onLoginSuccessDestination = "/dashboard/magic-tools";
+  const onLoginSuccessDestination = "/dashboard/home";
 
   const router = useRouter();
   const dispatch = useDispatch();
